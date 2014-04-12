@@ -1,0 +1,18 @@
+code(name="start",lib="skill")
+{
+	calc(name="3+2")
+	{
+		calc("#name>=4")
+		{
+			npc.talk(value="10000111, 你好 哈哈 ")
+			{
+				print("#index");
+			}
+			print("#index");
+		}
+		var(name="npc.a",value="100-#name");
+		print("#name #index");
+	}
+	print("name的数值: #name");
+	var(name="npc.a",value="100-#name");
+}

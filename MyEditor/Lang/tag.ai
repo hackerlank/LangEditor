@@ -1,0 +1,28 @@
+code(name="1235",lib="skill") //关于技能1235 的定制
+{
+	var("a=100"); // 定义一个变量
+	var("a=a+100");
+	or(){
+		cartoon.atFrame(2)
+		{
+			action(); // 在第二帧的时候 处理相关逻辑
+		}
+		cartoon.atFrame(3) 
+		{
+			gotoFrame(6); //在第三帧的时候 跳到第6帧 
+		}
+		cartoon.atFrame(10)
+		{
+			cartoon.create("other.ani",1000,arg="other");
+			other.setPosition(100,100);
+			inner("inner") // 在codeNode 中存在该代码且不执行
+			{
+				other.destory();// 10 分钟删除自身
+			}
+			other.atFrame(10,"inner"); // inner是一个回调模块 需要定制回调模块的环境
+		}
+	}
+}
+
+code()
+{}
